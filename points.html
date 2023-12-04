@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="javascript" type="text/javascript" src="path/to/p5.dom.js"></script>
+    <script>
+        let p1Height = 0;
+        let p2Height = 0;
+        let score1 = 0;
+        let score2 = 0;
+
+        function setupp(event) {
+            event.preventDefault(); 
+            p1Height += 10;
+            score1+=10;
+            document.getElementById("p1").style.height = p1Height + "px";
+            document.getElementById("score1").innerHTML= score1 + "Points";
+            if (p1Height==110){
+                    alert("Pavan sai is winner")
+                    p1Height=0
+
+            }
+        }
+
+        function setupk(event) {
+            event.preventDefault();  
+            p2Height += 10;
+            score2+=10;
+            document.getElementById("p2").style.height = p2Height + "px";
+            document.getElementById("score2").innerHTML= score2 + "Points";
+            if (p2Height==110){
+                    alert("Venkata sai sai is winner")
+                    p2Height=0
+            }
+        }
+    </script>
+    <style>
+   .cointeiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.psai, .ksai {
+    width: 90%; /* Adjust the width for smaller screens */
+    max-width: 300px; /* Limit the maximum width for larger screens */
+    margin: 20px;
+    height: 300px;
+    background-color: azure;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: 'Arial', sans-serif;
+}
+.psai{
+    background-image: url("pavan.jpg");
+}
+.ksai{
+    background-image: url("passportphoto.jpg");
+}
+.pre {
+    width: 20px;
+    height: 150px;
+    margin: auto;
+}
+
+.levelp, .levelk {
+    width: 20px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    margin: 30px;
+}
+
+button {
+    color: rgb(255, 0, 0);
+    background-color: aqua;
+}
+
+h1 {
+    margin: 30px;
+    color: aqua;
+    background-color: black;
+}
+
+h2 {
+    color: rgb(255, 0, 0);
+    margin: 0;
+}
+
+.score {
+    font-size: 1.5rem;
+    color: rgb(255, 0, 0);
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media only screen and (min-width: 600px) {
+    .cointeiner {
+        flex-direction: row;
+    }
+
+    .psai, .ksai {
+        width: 45%;
+        max-width: none;
+    }
+}
+
+    </style>
+    <title>Points</title>
+</head>
+<body>
+    <center><h1>p VS v</h1></center>
+    <div class="cointeiner">
+        <div class="psai">
+            <div class="pre">
+                <div class="levelp" id="p1"></div>
+                <h2 id="score1"></h2>
+            </div>
+            <h1>paavan sai</h1>
+            <button onclick="setupp(event)">Points</button>
+        </div>
+        <div class="ksai">
+            <div class="pre">
+                <div class="levelk" id="p2"></div>
+                <h2 id="score2"></h2>
+            </div>
+            <h1>venkata sai</h1>
+            <button onclick="setupk(event)">Points</button>
+        </div>
+    </div>
+</body>
+</html>
